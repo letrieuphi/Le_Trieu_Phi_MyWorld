@@ -5,6 +5,10 @@ import type { Media } from '@/content/projects';
 import { asset } from '@/lib/site';
 import { embedUrl, safeMediaUrl } from '@/lib/media';
 
+export function VideoWatchLink({ url }: { url?: string }) {
+  const href = safeMediaUrl(url);
+  return <div className="video-watch">{href ? <a className="pill-link" href={asset(href)} target="_blank" rel="noopener noreferrer"><T>Watch video</T> ↗</a> : <><button className="pill-link" disabled><T>Watch video</T> ↗</button><span><T>Video link coming soon</T></span></>}</div>;
+}
 export function MediaPlaceholder({ label = 'Visuals coming soon' }: { label?: string }) {
   const { t } = useLocale();
   return <div className="media-placeholder" role="img" aria-label={t(label)}><span aria-hidden="true">✳</span><p><T>{label}</T></p><small><T>{"LIGHT × MOTION × CURIOSITY"}</T></small></div>;
@@ -28,6 +32,7 @@ function MediaContent({ media, priority, preview }: { media: Media; priority: bo
       <img src={asset(imageSrc)} alt={t(media.alt)} width={media.width || 1600} height={media.height || 1000} loading={priority ? 'eager' : 'lazy'} fetchPriority={priority ? 'high' : 'auto'} decoding="async" srcSet={!preview ? media.sources?.filter(s => safeMediaUrl(s.src)).map(s => `${asset(s.src)} ${s.width}w`).join(', ') : undefined} sizes="(max-width: 700px) 100vw, 90vw" onError={() => setFailed(true)} /> : fallback
       : type === 'embed' ? embed ? <iframe src={embed} title={t(media.alt)} loading="lazy" allow="fullscreen; picture-in-picture" allowFullScreen referrerPolicy="strict-origin-when-cross-origin" onError={() => setFailed(true)} /> : fallback
       : <video controls playsInline preload="none" aria-label={t(media.alt)} src={asset(src)} poster={poster ? asset(poster) : undefined} onError={() => setFailed(true)}>{media.captions?.filter(t => safeMediaUrl(t.src)).map(track => <track key={track.src} kind="captions" src={asset(track.src)} srcLang={track.language} label={t(track.label)} />)}<T>{"Your browser does not support this video."}</T></video>}
+    {!preview && type !== 'image' && <VideoWatchLink url={media.watchUrl || src} />}
     {media.caption && <figcaption><T>{media.caption}</T></figcaption>}
   </figure>;
 }

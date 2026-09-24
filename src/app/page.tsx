@@ -1,3 +1,4 @@
+import { MediaView } from '@/components/media';
 import { T, LocaleSection } from '@/components/locale';
 import { LocaleLink as Link } from '@/components/locale';
 import { Portrait } from '@/components/portrait';
@@ -19,7 +20,7 @@ export default function Home() {
     <section className="section disciplines"><div className="section-heading" data-reveal><div><span className="eyebrow"><T>{"02 / DIFFERENT MEDIUMS. SAME CURIOSITY."}</T></span><h2><T>{"One practice."}</T><br /><em><T>{"Many perspectives."}</T></em></h2></div></div><CategoryList /></section>
     <section className="about-preview section" data-reveal><span className="eyebrow"><T>{"03 / THE PERSON BEHIND THE FRAME"}</T></span><div><h2><T>{"An eye for light."}</T><br /><T>{"An appetite for"}</T><br /><em><T>{"the unfamiliar."}</T></em></h2><p><T>{"I’m Triệu Phi — a D.O.P, Motion Designer and Photographer based in Ho Chi Minh City. I’m drawn to projects that give me something new to learn, and another way to tell a story."}</T></p><Link href="/about" className="text-link"><T>{"A little more about me ↗"}</T></Link></div><span className="large-star" aria-hidden="true">✳</span></section>
     <section className="section experience-preview"><div className="section-heading"><div><span className="eyebrow"><T>{"04 / ALONG THE WAY"}</T></span><h2><T>{"Creative work."}</T><br /><em><T>{"Shared experiences."}</T></em></h2></div><Link href="/cv" className="text-link"><T>{"View CV ↗"}</T></Link></div>{experience.slice(0, 2).map(e => <div className="experience-row" key={e.company} data-reveal><h3><T>{e.company}</T></h3><span><T>{e.role}</T></span><span><T>{e.dates}</T></span></div>)}</section>
-    <LocaleSection className="visual-strip" aria-label="Photography collection preview"><Link href="/work/photography"><Artwork kind="photo" /><div><span className="eyebrow"><T>{"THROUGH THE VIEWFINDER"}</T></span><h2><T>{"Look a little"}</T><br /><em><T>{"closer."}</T></em></h2><span className="text-link"><T>{"Photography collection ↗"}</T></span></div></Link></LocaleSection>
+    <LocaleSection className="visual-strip" aria-label="Photography collection preview"><Link href="/work/photography">{profile.photographyBanner ? <MediaView media={{ src: profile.photographyBanner, alt: "Photography Collection" }} preview /> : <Artwork kind="photo" />}<div><span className="eyebrow"><T>{"THROUGH THE VIEWFINDER"}</T></span><h2><T>{"Look a little"}</T><br /><em><T>{"closer."}</T></em></h2><span className="text-link"><T>{"Photography collection ↗"}</T></span></div></Link></LocaleSection>
     <ContactCTA />
   </>;
 }

@@ -2,6 +2,7 @@ export const profile = {
   name: 'Triệu Phi', fullName: 'Lê Triệu Phi',
   nickname: 'Hachi', location: 'Ho Chi Minh City, Vietnam',
   profileImage: '/images/profile/portrait.jpg',
+  photographyBanner: '', // /photography/banner.webp
   portraitAvailable: false, // Set true after adding the approved portrait.
   shortIntro: 'I like telling stories through light, motion and frames.',
   aboutParagraphs: [

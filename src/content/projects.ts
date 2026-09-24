@@ -12,7 +12,7 @@ export type Media = {
   width?: number; height?: number;
   layout?: 'grid' | 'full' | 'wide';
   fit?: 'cover' | 'contain';
-  poster?: string; placeholder?: string;
+  poster?: string; placeholder?: string; watchUrl?: string;
   sources?: { src: string; width: number }[];
   captions?: { src: string; language: string; label: string }[];
 };
@@ -24,14 +24,15 @@ export type Project = {
   process?: { title: string; text: string; media?: Media[] }[]; bts?: Media[]; videos?: Media[];
   mediaSections?: { title?: string; layout?: 'grid' | 'strip'; items: Media[] }[];
   challenge?: string; approach?: string; outcome?: string; credits?: string[];
+  watchUrl?: string; // Empty string shows a disabled watch button; add a public HTTPS link.
   externalLinks?: { label: string; url: string }[]; previousProject?: string; nextProject?: string;
 };
 export const projects: Project[] = [
-  { slug: 'lac', title: 'LẠC', category: 'Stop Motion / Film', disciplines: ['film'], featured: true, art: 'light', summary: 'A careful study of light, one frame at a time.', description: 'A stop-motion film with a strong focus on lighting and carefully executed production.',
+  { slug: 'lac', watchUrl: '', title: 'LẠC', category: 'Stop Motion / Film', disciplines: ['film'], featured: true, art: 'light', summary: 'A careful study of light, one frame at a time.', description: 'A stop-motion film with a strong focus on lighting and carefully executed production.',
     year: undefined, roles: [], team: '', duration: '', synopsis: '', camera: '', lens: '', lighting: '', process: [], bts: [], videos: [] }, // TODO: exact role, production details, final film and real media
-  { slug: 'co-sac', title: 'CỔ SẮC', category: 'Documentary / Film', disciplines: ['film'], roles: ['D.O.P', 'Camera Operator'], featured: true, art: 'red', summary: 'A documentary seen through a cinematographer’s lens.', description: 'A documentary film with Triệu Phi working as D.O.P and Camera Operator.',
+  { slug: 'co-sac', watchUrl: '', title: 'CỔ SẮC', category: 'Documentary / Film', disciplines: ['film'], roles: ['D.O.P', 'Camera Operator'], featured: true, art: 'red', summary: 'A documentary seen through a cinematographer’s lens.', description: 'A documentary film with Triệu Phi working as D.O.P and Camera Operator.',
     year: undefined, team: '', duration: '', synopsis: '', camera: '', lens: '', lighting: '', challenge: '', bts: [], videos: [] }, // TODO: synopsis, team, equipment, footage and BTS
-  { slug: 'daa-stopmotion', title: 'DA&A StopMotion', category: 'Creative Technology / Experimental', disciplines: ['film'], roles: ['End-to-end development'], year: 2026, featured: true, art: 'frames', summary: 'Building the tool that the production needed.', description: 'Previously KILN Motion. A stop-motion software project for students and people who want to learn or work with stop-motion, created during a school production. A creative technology project rooted in self-learning, initiative and production problem solving.',
+  { slug: 'daa-stopmotion', watchUrl: '', title: 'DA&A StopMotion', category: 'Creative Technology / Experimental', disciplines: ['film'], roles: ['End-to-end development'], year: 2026, featured: true, art: 'frames', summary: 'Building the tool that the production needed.', description: 'Previously KILN Motion. A stop-motion software project for students and people who want to learn or work with stop-motion, created during a school production. A creative technology project rooted in self-learning, initiative and production problem solving.',
     tools: ['C#', '.NET', 'WPF', 'XAML', 'Camera SDK', 'Git', 'GitHub', 'Visual Studio'],
     challenge: 'Dragonframe was expensive, free alternatives lacked required features, and cracked software introduced reliability and security risks. The team needed a workflow suited to its production.',
     approach: 'Capture → Animate → Review → Organize → Export. Research and development spans Camera Capture, Live View, Onion Skin, Frame Management, Timeline, Motion Guide, increment and graph-style planning, Chroma Preview, Flicker Detection, Preview Animation, Project / Take Management and export. Camera integration direction includes Sony, Canon and Nikon.',
@@ -39,5 +40,5 @@ export const projects: Project[] = [
     outcome: 'A software project built around the needs of stop-motion production. Explore the public product website for more information.',
     externalLinks: [{ label: 'Explore DA&A StopMotion', url: 'https://kilnstopmotion.github.io/KILN_StopMotion/' }] },
   { slug: 'photography-collection', title: 'Photography Collection', category: 'Photography', disciplines: ['photography'], featured: true, art: 'photo', summary: 'Light, observed. Moments, collected.', gallery: [] }, // TODO: supplied photographs, albums, captions
-  { slug: 'motion-design-collection', title: 'Motion Design Collection', category: 'Motion Graphic', disciplines: ['motion-graphic'], featured: true, art: 'motion', summary: 'An ongoing exploration of form and rhythm.', videos: [] }, // TODO: actual motion reels and project details
+  { slug: 'motion-design-collection', watchUrl: '', title: 'Motion Design Collection', category: 'Motion Graphic', disciplines: ['motion-graphic'], featured: true, art: 'motion', summary: 'An ongoing exploration of form and rhythm.', videos: [] }, // TODO: actual motion reels and project details
 ];

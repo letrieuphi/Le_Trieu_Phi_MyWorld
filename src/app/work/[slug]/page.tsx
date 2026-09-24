@@ -4,7 +4,7 @@ import { LocaleLink as Link } from '@/components/locale';
 import { notFound } from 'next/navigation';
 import { categories, projects } from '@/content/projects';
 import { Artwork, ProjectCard } from '@/components/work';
-import { MediaView, MediaGallery } from '@/components/media';
+import { MediaView, MediaGallery, VideoWatchLink } from '@/components/media';
 import { PageHeading, ContactCTA } from '@/components/layout';
 import { pageSeo } from '@/content/locales/seo';
 import { siteUrl } from '@/lib/site';
@@ -18,6 +18,7 @@ export default async function WorkPage({ params }: { params: Promise<{ slug: str
   const next = projects.find(item => item.slug === p.nextProject) || projects[(projects.indexOf(p) + 1) % projects.length];
   const meta = [['Category', p.category], ['Year', p.year], ['Role', p.roles?.join(' / ')], ['Team', p.team], ['Client', p.client], ['Duration', p.duration], ['Camera', p.camera], ['Lens', p.lens], ['Lighting', p.lighting]].filter(([, value]) => value);
   return <><article className="section project-detail"><Link className="text-link" href="/work"><T>{"← All work"}</T></Link><PageHeading label="SELECTED PROJECT" title={p.title} text={p.summary} /><div className="project-hero">{p.heroMedia ? <MediaView media={p.heroMedia} priority /> : p.cover ? <MediaView media={p.cover} priority /> : <Artwork kind={p.art} title={p.title} />}</div><dl className="project-facts">{meta.map(([key, value]) => <div key={key}><dt><T>{key}</T></dt><dd><T>{value}</T></dd></div>)}</dl>
+    {p.watchUrl !== undefined && <VideoWatchLink url={p.watchUrl} />}
     {p.description && <section className="story-block"><h2><T>{"Overview"}</T></h2><p><T>{p.description}</T></p></section>}{p.synopsis && <section className="story-block"><h2><T>{"Synopsis"}</T></h2><p><T>{p.synopsis}</T></p></section>}
     {!!p.gallery?.length && <MediaGallery items={p.gallery} label="Selected visuals" />}
     {!!p.process?.length && <section className="story-block"><h2><T>{"Behind the process"}</T></h2><div>{p.process.map(s => <div key={s.title}><h3><T>{s.title}</T></h3><p><T>{s.text}</T></p>{!!s.media?.length && <MediaGallery items={s.media} label={s.title} />}</div>)}</div></section>}

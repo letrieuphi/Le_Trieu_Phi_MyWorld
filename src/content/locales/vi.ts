@@ -1,5 +1,7 @@
 /** English source strings are stable translation keys; proper names remain unchanged. */
 export const vi: Record<string, string> = {
+  "Watch video": "Xem video",
+  "Video link coming soon": "Video sẽ được cập nhật",
   "HELLO, I'M": 'XIN CHÀO, TÔI LÀ',
   'I like telling stories through light, motion and frames.': 'Tôi thích kể chuyện bằng ánh sáng, chuyển động và những khung hình.',
   'About me ↗': 'Về tôi ↗', 'ABOUT ME': 'VỀ TÔI', 'MY MANIFESTO': 'TUYÊN NGÔN',
