@@ -1,0 +1,9 @@
+{
+  "name": "trieu-phi-myworld",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": { "dev": "next dev", "build": "next build", "typecheck": "tsc --noEmit", "lint": "eslint .", "test": "node --experimental-strip-types --test scripts/media.test.mjs" },
+  "dependencies": { "next": "latest", "react": "latest", "react-dom": "latest" },
+  "devDependencies": { "typescript": "^5", "@types/node": "^22", "@types/react": "^19", "@types/react-dom": "^19", "eslint": "^9", "eslint-config-next": "latest" }
+}

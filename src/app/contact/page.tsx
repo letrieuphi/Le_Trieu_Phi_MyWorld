@@ -1,0 +1,6 @@
+import type { Metadata } from 'next';
+import { PageHeading } from '@/components/layout';
+import { CopyEmail } from '@/components/interaction';
+import { profile } from '@/content/profile';
+export const metadata: Metadata = { title: 'Contact', description: 'Get in touch with Triệu Phi for creative collaborations, photography, film and motion projects.' };
+export default function Contact() { return <section className="section contact-page"><PageHeading label="A CONVERSATION IS A GOOD BEGINNING" title="Let’s create" text="A film, an image, an idea that won’t leave your head. I’d love to hear about it." /><div className="contact-main"><span className="eyebrow">SAY HELLO</span><a className="email-link" href={`mailto:${profile.email}`}>letrieuphi.hachi<br className="email-break" />.contact@gmail.com <span>↗</span></a><CopyEmail email={profile.email} /></div><div className="contact-details"><div><span className="eyebrow">FIND ME ELSEWHERE</span><a href={profile.instagram} target="_blank" rel="noreferrer">Instagram / @hachi_hichino ↗</a>{Object.entries(profile.socials).filter(([, url]) => url).map(([name, url]) => <a href={url} key={name} target="_blank" rel="noreferrer">{name} ↗</a>)}</div><div><span className="eyebrow">BASED IN</span><p>Ho Chi Minh City, Vietnam</p></div></div><span className="contact-star" aria-hidden="true">✳</span></section>; }
