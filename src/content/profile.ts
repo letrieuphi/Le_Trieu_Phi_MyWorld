@@ -1,9 +1,9 @@
 export const profile = {
   name: 'Triệu Phi', fullName: 'Lê Triệu Phi',
   nickname: 'Hachi', location: 'Ho Chi Minh City, Vietnam',
-  profileImage: '/images/profile/portrait.jpg',
+  profileImage: '/images/profile/portrait.webp',
   photographyBanner: '', // /photography/banner.webp
-  portraitAvailable: false, // Set true after adding the approved portrait.
+  portraitAvailable: true, // Set true after adding the approved portrait.
   shortIntro: 'I like telling stories through light, motion and frames.',
   aboutParagraphs: [
     'I’m Triệu Phi — a D.O.P, Motion Designer and Photographer in Ho Chi Minh City.',
