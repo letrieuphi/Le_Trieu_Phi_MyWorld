@@ -41,6 +41,7 @@ See `MEDIA_GUIDE.md` for paste-ready examples of every image/video field, respon
 Add an album as a project with `disciplines: ['photography']`. Put photographs in `public/photography/` and reference them from `gallery`, including meaningful alt text and optional captions. Images have lazy loading and explicit dimensions; the static export expects pre-optimized images. For responsive sources/CDN transformations, extend `MediaView` or configure a compatible image loader.
 
 ## CV and profile
+See `LOCALIZATION.md` for VI/EN translations, language persistence, SEO limits on static hosting and the data-driven personal hero/About sections.
 Replace the missing CV files with the two approved PDFs named in `CONTENT_TODO.md`, then set `profile.cv.vi` and `profile.cv.en` to their `/cv/...pdf` paths. Until then, download buttons visibly say Coming soon. Update biography/contact in `profile.ts`, experience in `experience.ts`. No fake PDFs are included.
 
 ## Deployment

@@ -1,8 +1,10 @@
 'use client';
+import { T, useLocale } from '@/components/locale';
 import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
 export function Intro() {
+  const { t } = useLocale();
   const [show, setShow] = useState(false);
   const skip = useRef<HTMLButtonElement>(null);
   useEffect(() => {
@@ -22,10 +24,10 @@ export function Intro() {
     return () => { if (main) main.inert = false; document.querySelector<HTMLElement>('#main')?.focus({ preventScroll: true }); };
   }, [show]);
   if (!show) return null;
-  return <div className="intro" role="dialog" aria-modal="true" aria-label="Triệu Phi introduction" onKeyDown={e => { if (e.key === 'Tab') { e.preventDefault(); skip.current?.focus(); } }}>
-    <span className="eyebrow">LIGHT × MOTION × CURIOSITY</span><div className="intro-name">TRIỆU PHI<span>✳</span></div>
-    <p>D.O.P · MOTION DESIGNER · PHOTOGRAPHER</p>
-    <button ref={skip} onClick={() => { setShow(false); try { sessionStorage.setItem('tp-intro', 'seen'); } catch {} }}>Skip intro ↗</button>
+  return <div className="intro" role="dialog" aria-modal="true" aria-label={t("Triệu Phi introduction")} onKeyDown={e => { if (e.key === 'Tab') { e.preventDefault(); skip.current?.focus(); } }}>
+    <span className="eyebrow"><T>{"LIGHT × MOTION × CURIOSITY"}</T></span><div className="intro-name"><T>{"TRIỆU PHI"}</T><span>✳</span></div>
+    <p><T>{"D.O.P · MOTION DESIGNER · PHOTOGRAPHER"}</T></p>
+    <button ref={skip} onClick={() => { setShow(false); try { sessionStorage.setItem('tp-intro', 'seen'); } catch {} }}><T>{"Skip intro ↗"}</T></button>
   </div>;
 }
 export function MotionSystem() {
@@ -56,12 +58,12 @@ export function LightSculpture() {
     ref.current.style.setProperty('--ry', `${(e.clientX - r.left - r.width / 2) / r.width * 20}deg`);
   }} onPointerLeave={() => { ref.current?.style.setProperty('--rx', '0deg'); ref.current?.style.setProperty('--ry', '0deg'); }}>
     <div className="frame-corner top" /><div className="frame-corner bottom" />
-    <span className="stage-label">EXPLORATION 001 — THE SHAPE OF LIGHT</span>
+    <span className="stage-label"><T>{"EXPLORATION 001 — THE SHAPE OF LIGHT"}</T></span>
     <div className="sculpture" ref={ref} aria-hidden="true">{Array.from({ length: 8 }, (_, i) => <i key={i} style={{ '--i': i } as React.CSSProperties} />)}</div>
-    <div className="stage-bottom"><span>LIGHT STUDY / INTERACTIVE</span><span>↔ MOVE TO EXPLORE</span></div>
+    <div className="stage-bottom"><span><T>{"LIGHT STUDY / INTERACTIVE"}</T></span><span><T>{"↔ MOVE TO EXPLORE"}</T></span></div>
   </div>;
 }
 export function CopyEmail({ email }: { email: string }) {
   const [message, setMessage] = useState('Copy email ↗');
-  return <><button className="text-link" onClick={async () => { try { await navigator.clipboard.writeText(email); setMessage('Email copied ✓'); } catch { setMessage('Select the email above to copy'); } }}>{message}</button><span className="sr-only" role="status">{message === 'Copy email ↗' ? '' : message}</span></>;
+  return <><button className="text-link" onClick={async () => { try { await navigator.clipboard.writeText(email); setMessage('Email copied ✓'); } catch { setMessage('Select the email above to copy'); } }}><T>{message}</T></button><span className="sr-only" role="status"><T>{message === 'Copy email ↗' ? '' : message}</T></span></>;
 }

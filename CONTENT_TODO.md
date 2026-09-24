@@ -1,5 +1,7 @@
 # Content to complete
 
+- Approved portrait: add `public/images/profile/portrait.jpg` and enable `portraitAvailable` in profile.ts. Hero/About currently show the small portrait placeholder requested by the owner.
+
 The current abstract artwork is original CSS placeholder artwork, not photography or footage from these projects. Replace it with supplied, approved media. Empty optional fields are hidden.
 
 - LẠC: year, exact role, team, duration, synopsis, camera/lens/lighting, process, BTS, final film URL and cover.
