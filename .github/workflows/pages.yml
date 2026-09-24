@@ -1,0 +1,53 @@
+name: Deploy portfolio to GitHub Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Import initial source bundle if present
+        run: |
+          if [ -f source-bundle.zip ]; then
+            unzip -o source-bundle.zip
+            git rm source-bundle.zip
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add .
+            git commit -m 'feat: import portfolio application and reusable media system'
+            git push origin HEAD:main
+          fi
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+        env:
+          NEXT_PUBLIC_BASE_PATH: /Le_Trieu_Phi_MyWorld
+          NEXT_PUBLIC_SITE_URL: https://letrieuphi.github.io/Le_Trieu_Phi_MyWorld
+      - run: npm run typecheck
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
