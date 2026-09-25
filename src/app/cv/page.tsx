@@ -9,7 +9,7 @@ import { experience } from '@/content/experience';
 import { asset } from '@/lib/site';
 export const metadata: Metadata = { title: { absolute: pageSeo('/cv').title }, description: pageSeo('/cv').description, openGraph: { ...pageSeo('/cv'), locale: 'vi_VN' }, twitter: { ...pageSeo('/cv') } };
 export default function CV() { return <section className="section cv-page">
-  <div className="cv-identity"><Portrait src={profile.cvImage} /><PageHeading label="EXPERIENCE / EDUCATION / PRACTICE" title="Lê Triệu Phi" text={profile.title} /></div>
+  <div className="cv-identity"><Portrait src={profile.cvImage} /><div className="page-heading"><h1>Lê Triệu Phi<span className="orange">.</span></h1><p>{profile.title}</p><p className="cv-intro"><T>{profile.cvIntro}</T></p></div></div>
   <div className="cv-downloads">{(['vi', 'en'] as const).map(lang => profile.cv[lang] ? <a key={lang} className="pill-link" href={asset(profile.cv[lang])} download><T>{lang === 'vi' ? 'Download CV — Vietnamese' : 'Download CV — English'}</T> ↓</a> : <button key={lang} className="pill-link" disabled><T>{lang === 'vi' ? 'Download CV — Vietnamese' : 'Download CV — English'}</T> <span><T>Coming soon</T></span></button>)}</div>
   <div className="cv-columns">
     <aside className="cv-details">

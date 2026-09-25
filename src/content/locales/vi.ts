@@ -1,5 +1,6 @@
 /** English source strings are stable translation keys; proper names remain unchanged. */
 export const vi: Record<string, string> = {
+  'I approach my work with a commitment to continuous learning and growth, proactively putting my knowledge and skills into practice while continually improving myself to create increasingly polished, high-quality work.': 'Tôi luôn làm việc với tinh thần không ngừng học hỏi và phát triển, chủ động đưa những kiến thức và kỹ năng mình có vào thực tiễn, đồng thời liên tục hoàn thiện bản thân để tạo ra những sản phẩm ngày càng chỉn chu và chất lượng hơn.',
   'January 2023 — February 2024': 'Tháng 01/2023 — Tháng 02/2024',
   'Design communication and advertising materials for the center. Design printed materials for the center’s events.': 'Thiết kế các ấn phẩm truyền thông và quảng bá cho trung tâm. Thiết kế các sản phẩm ấn in phục vụ cho các sự kiện của trung tâm.',
 

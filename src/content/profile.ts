@@ -1,6 +1,7 @@
 export const profile = {
   name: 'Triệu Phi', fullName: 'Lê Triệu Phi',
   nickname: 'Hachi', location: 'Ho Chi Minh City, Vietnam',
+  cvIntro: 'I approach my work with a commitment to continuous learning and growth, proactively putting my knowledge and skills into practice while continually improving myself to create increasingly polished, high-quality work.',
   cvImage: '/images/profile/portrait-2.webp',
   profileImage: '/images/profile/portrait.webp',
   photographyBanner: '', // /photography/banner.webp
