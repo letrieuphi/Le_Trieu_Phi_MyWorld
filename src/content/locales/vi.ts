@@ -1,5 +1,8 @@
 /** English source strings are stable translation keys; proper names remain unchanged. */
 export const vi: Record<string, string> = {
+  'January 2023 — February 2024': 'Tháng 01/2023 — Tháng 02/2024',
+  'Design communication and advertising materials for the center. Design printed materials for the center’s events.': 'Thiết kế các ấn phẩm truyền thông và quảng bá cho trung tâm. Thiết kế các sản phẩm ấn in phục vụ cho các sự kiện của trung tâm.',
+
   'Phone': 'Điện thoại',
   'Awards': 'Giải thưởng',
   'May 2026 — August 2026': 'Tháng 5/2026 — Tháng 8/2026',

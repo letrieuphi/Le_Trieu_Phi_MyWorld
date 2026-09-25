@@ -1,6 +1,7 @@
 export const profile = {
   name: 'Triệu Phi', fullName: 'Lê Triệu Phi',
   nickname: 'Hachi', location: 'Ho Chi Minh City, Vietnam',
+  cvImage: '/images/profile/portrait-2.webp',
   profileImage: '/images/profile/portrait.webp',
   photographyBanner: '', // /photography/banner.webp
   portraitAvailable: true, // Set true after adding the approved portrait.
