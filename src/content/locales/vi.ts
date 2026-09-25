@@ -1,5 +1,14 @@
 /** English source strings are stable translation keys; proper names remain unchanged. */
 export const vi: Record<string, string> = {
+  'Phone': 'Điện thoại',
+  'Awards': 'Giải thưởng',
+  'May 2026 — August 2026': 'Tháng 5/2026 — Tháng 8/2026',
+  'November 2023 — October 2025': 'Tháng 11/2023 — Tháng 10/2025',
+  '2022 — Present': '2022 — Hiện tại',
+  'Runner-up — ACPWC 2024 National Graphic Design Competition': 'Á quân thiết kế đồ họa quốc gia ACPWC 2024',
+  'Consolation Prize — ACPWC 2025 National Graphic Design Competition': 'Khuyến khích thiết kế đồ họa quốc gia ACPWC 2025',
+  'Top 10 nominees — 1st Ho Chi Minh City Film Festival 2026, Documentary category': 'Top 10 đề cử liên hoan phim TP.HCM lần I 2026 - Hạng mục phim Tài liệu',
+
   "Watch video": "Xem video",
   "Video link coming soon": "Video sẽ được cập nhật",
   "HELLO, I'M": 'XIN CHÀO, TÔI LÀ',

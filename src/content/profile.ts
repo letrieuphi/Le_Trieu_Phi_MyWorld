@@ -23,6 +23,7 @@ export const profile = {
     { title: 'CURIOSITY', text: 'I enjoy researching independently, trying new tools and solving things I’ve never done before.' },
   ],
   title: 'D.O.P · Motion Designer · Photographer',
+  phone: '038.71.84.553', phoneHref: 'tel:+84387184553',
   email: 'letrieuphi.hachi.contact@gmail.com',
   instagram: 'https://www.instagram.com/hachi_hichino/',
   about: [
