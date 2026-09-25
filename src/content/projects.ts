@@ -1,10 +1,10 @@
 export const categories = [
-  { slug: 'graphic-design', name: 'Graphic Design', text: 'Ideas made visible. Identity, composition and communication.', art: 'type' },
-  { slug: 'video-editor', name: 'Video Editor', text: 'Finding rhythm between the frames.', art: 'motion' },
+  { slug: 'graphic-design', name: 'Graphic Design', text: 'Ideas made visible. Identity, composition and communication.', art: 'type', externalUrl: 'https://drive.google.com/drive/folders/1VU9dFkEzL0PhXdPccGRUYePgm14JjeEL?usp=drive_link' },
+  { slug: 'video-editor', name: 'Video Editor', text: 'Finding rhythm between the frames.', art: 'motion', externalUrl: 'https://drive.google.com/drive/folders/1KMZmVuFJvx-YrKBbILrA39Vsl3mgc0f9?usp=drive_link' },
   { slug: 'film', name: 'Film', text: 'Stories shaped by light, movement and a point of view.', art: 'light' },
-  { slug: 'motion-graphic', name: 'Motion Graphic', text: 'Typography, form and ideas in motion.', art: 'motion' },
-  { slug: '3d', name: '3D', text: 'Experiments in depth, material and imagined spaces.', art: 'sculpture' },
-  { slug: 'photography', name: 'Photography', text: 'A pause. A detail. Another way of seeing.', art: 'photo' },
+  { slug: 'motion-graphic', name: 'Motion Graphic', text: 'Typography, form and ideas in motion.', art: 'motion', externalUrl: 'https://drive.google.com/drive/folders/1_xXSSZKNVg7scANMto_TUw7KNzyXjTSY?usp=drive_link' },
+  { slug: '3d', name: '3D', text: 'Experiments in depth, material and imagined spaces.', art: 'sculpture', externalUrl: 'https://drive.google.com/drive/folders/1Qa5tid0k0_wyEJ_B6WCiffYPv3eUVgBs?usp=drive_link' },
+  { slug: 'photography', name: 'Photography', text: 'A pause. A detail. Another way of seeing.', art: 'photo', externalUrl: 'https://drive.google.com/drive/folders/18NWCLHXjzrYiqOylzkRuWLwwFiUYm2Kt?usp=drive_link' },
 ];
 export type Media = {
   src?: string; alt: string; caption?: string;

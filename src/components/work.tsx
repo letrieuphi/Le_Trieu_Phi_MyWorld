@@ -14,5 +14,10 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
   </Link>;
 }
 export function CategoryList({ previews = false }: { previews?: boolean }) {
-  return <div className="category-list">{categories.map((c, i) => <Link href={`/work/${c.slug}`} key={c.slug} className="category-row" data-reveal><span className="eyebrow">0{i + 1}</span>{previews && <Artwork kind={c.art} small />}<div><h3><T>{c.name}</T></h3><p><T>{c.text}</T></p></div><span className="category-arrow">↗</span></Link>)}</div>;
+  return <div className="category-list">{categories.map((c, i) => {
+    const content = <><span className="eyebrow">0{i + 1}</span>{previews && <Artwork kind={c.art} small />}<div><h3><T>{c.name}</T></h3><p><T>{c.text}</T></p></div><span className="category-arrow">↗</span></>;
+    return 'externalUrl' in c
+      ? <a href={c.externalUrl} key={c.slug} className="category-row" data-reveal target="_blank" rel="noopener noreferrer">{content}</a>
+      : <Link href={`/work/${c.slug}`} key={c.slug} className="category-row" data-reveal>{content}</Link>;
+  })}</div>;
 }
